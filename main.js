@@ -117,6 +117,27 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
+// GALLERY CATEGORY TABS
+// ============================================
+
+const tabButtons = document.querySelectorAll('.tab-btn');
+const galleryCategories = document.querySelectorAll('.gallery-category');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const targetCategory = this.getAttribute('data-category');
+        
+        // Remove active class from all buttons and categories
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        galleryCategories.forEach(category => category.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding category
+        this.classList.add('active');
+        document.querySelector(`.gallery-category[data-category="${targetCategory}"]`).classList.add('active');
+    });
+});
+
+// ============================================
 // GALLERY ITEM CLICK EFFECT
 // ============================================
 
